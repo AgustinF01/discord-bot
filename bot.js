@@ -25,9 +25,9 @@ async function getLatestTweet() {
         if (latestTweet.id === lastTweetId) return null;
 
         lastTweetId = latestTweet.id;
-        return `📢 Nuevo tweet de @usuario:\nhttps://twitter.com/user/status/${latestTweet.id}`;
+        return `📢 New tweet from @user:\nhttps://twitter.com/user/status/${latestTweet.id}`;
     } catch (error) {
-        console.error("Error obteniendo tweet:", error);
+        console.error("Error getting tweet:", error);
         return null;
     }
 }
@@ -39,8 +39,8 @@ async function checkTweets() {
 }
 
 client.once("ready", () => {
-    console.log(`Bot conectado como ${client.user.tag}`);
-    setInterval(checkTweets, 60000); // Verificar cada minuto
+    console.log(`Bot connected ${client.user.tag}`);
+    setInterval(checkTweets, 60000); // Check every minute
 });
 
 client.login(process.env.DISCORD_TOKEN);
